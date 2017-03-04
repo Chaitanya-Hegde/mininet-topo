@@ -5,3 +5,8 @@
 参考：
 
 [mininet/examples/controllers.py](https://github.com/mininet/mininet/blob/master/examples/controllers.py)
+
+# 2. linear-multi-controller.py
+
+使用mininet创建一个POF linear拓扑，与创建OVS Linear拓扑不同的是需要重写Linear
+Topo类，从而在创建交换机时指定ListenPort: switch = self.addSwitch('s%s' % i, listenPort = 6633 + i)，否则创建拓扑会失败。
