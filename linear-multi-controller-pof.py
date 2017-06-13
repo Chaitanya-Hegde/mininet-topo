@@ -61,7 +61,7 @@ if __name__ == '__main__':
     cleanup()
     
     linearTopo = LinearTopo(k=9, n=1)   
-    net = Mininet(switch=MultiSwitch, topo=linearTopo, build=False)       
+    net = Mininet(switch=MultiSwitch, topo=linearTopo, autoSetMacs=True, build=False)       
     print "before add controllers ..."
     for c in [ c0, c1, c2 ]:
         net.addController(c)
@@ -69,7 +69,7 @@ if __name__ == '__main__':
     setLogLevel('info')
     net.build()
     net.start()
-    #net.staticArp()
+    net.staticArp()
     print "Dumping host connections ..."
     dumpNodeConnections(net.hosts)
     dumpNodeConnections(net.switches)
